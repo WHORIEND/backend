@@ -8,5 +8,5 @@ urlpatterns = [
     path("login/",views.login),
     path("logout/",views.logout),
     path("lan/", views.TeachableUserView.as_view()),
-    path("lan/<int:pk>/", views.TeacherView.as_view()),
+    path('<int:pk>/', views.TeacherView.as_view()),
 ]
