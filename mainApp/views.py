@@ -38,6 +38,12 @@ class TeacherView(RetrieveAPIView):
         context = super().get_context_data(**kwargs)
         context[self.kwargs['pk']] = User.objects.filter(teachable__deatil_name = self.kwargs['pk'])
         return context
+    
+class ProfileView(APIView):
+    def get(self, request):
+        querset = User.objects.all()
+        serializers = ProfileSerializer(querset, many = True)
+        return Response(serializers.data)
 
 def login(request):
     if request.method == 'POST':

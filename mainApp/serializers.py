@@ -24,4 +24,7 @@ class BasicUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ( "name", "image")
 
-
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("name", "nickname", "gender","age","country","teachable","image")

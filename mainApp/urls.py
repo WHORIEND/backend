@@ -9,4 +9,5 @@ urlpatterns = [
     path("logout/",views.logout),
     path("lan/", views.TeachableUserView.as_view()),
     path('<int:pk>/', views.TeacherView.as_view()),
+    path("profile/", views.ProfileView.as_view()),
 ]
