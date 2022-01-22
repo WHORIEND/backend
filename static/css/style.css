@@ -1,0 +1,276 @@
+@font-face {
+    font-family: '나눔스퀘어_라이트';
+    src : url(../font/NanumSquareL.ttf);
+}
+
+@font-face {
+    font-family: '나눔스퀘어_레귤러';
+    src : url(../font/NanumSquareR.ttf);
+}
+
+@font-face {
+    font-family: '나눔스퀘어_볼드';
+    src : url(../font/NanumSquareB.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loginBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.regBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.container{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left, .right, form{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.left{
+    width:500px;
+    align-items: flex-start;
+}
+
+.right{
+    width:400px;
+}
+
+.title-area, .signup-area{
+    width:400px;
+}
+
+.title-area{
+    height:100px;
+    margin-bottom: 20px;
+}
+
+form{
+    background-color: white;
+    border-radius: 10px;
+    width:400px;
+    display: flex;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+form input{
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    outline: none;
+    font-size: 16px;
+}
+
+.loginBtn{
+    background-color: #a5a5a5;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Arial';
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+
+.loginBtn:hover{
+    background-color: #a0a0a0;
+}
+
+.BacktoLoginPage{
+    text-decoration-line: none; 
+    font-family: '나눔스퀘어_레귤러'; 
+    color: #646464;
+}
+
+.BacktoLoginPage:hover{
+    color:black
+}
+
+.CompleteSignupBtn{
+    background-color: #04CF5C;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Arial';
+    font-weight: 700;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.CompleteSignupBtn:hover{
+    background-color: #2EB500;
+}
+
+.forget{
+    margin: 15px 0;
+    text-decoration: none;
+    color: #2DB400;
+    font-family: '나눔스퀘어_볼드';
+    font-size: 14px;
+}
+
+.sign-up{
+    padding-top: 20px;
+    border-top: 1px solid #999;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.signupBtn{
+    background-color: #04CF5C;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 17px;
+    font-family: 'Arial';
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.signupBtn:hover{
+    background-color: #2EB500;
+}
+
+.right p{
+    font-family: 'Arial';
+    font-size: 15px;
+}
+
+@media(max-width:950px){
+    .container{
+        flex-direction: column;
+    }
+    
+    .left{
+        width: 400px;
+        align-content: center;
+        align-items: center;
+    }
+    
+    .left p{
+        height: 75px;
+    }
+}
+
+
+.title_parent{
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    height: 100%;
+
+}
+
+.profile{
+    width: 12%;
+    text-align: center; 
+    border: 0;
+    outline: 0;
+    background-color : transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.profile img 
+{
+    transition: all 0.2s linear;
+}
+
+.profile:hover img {
+    transform: scale(1.05);
+}
+
+.title{
+    width: 65%;
+}
+
+.message{
+    width: 12%;
+    text-align: center; 
+    border: 0;
+    outline: 0;
+    background-color : transparent;
+    cursor: pointer;
+}
+
+.message img 
+{
+    transition: all 0.2s linear;
+}
+
+.message:hover img {
+    transform: scale(1.05);
+}
+
+nav ul{
+    width:100%;
+    background-color: #999;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+.category{
+    float:right;
+    margin-right: 5.5%;
+   
+}
+
+select { 
+    width: 200px; /* 원하는 너비설정 */ 
+    padding: .8em .5em; /* 여백으로 높이 설정 */ 
+    font-family: inherit; /* 폰트 상속 */ 
+    background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */ 
+    border: 1px solid #999; 
+    border-radius: 0px; /* iOS 둥근모서리 제거 */ 
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+    -moz-appearance: none; 
+    appearance: none; 
+    outline:none;
+}
