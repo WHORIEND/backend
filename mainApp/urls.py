@@ -4,11 +4,10 @@ from .import views
 app_name = "mainApp"
 
 urlpatterns = [
-    #path("", views.mainView.as_view()),
-    path("", views.test),
-    path("login/",views.login),
-    path("logout/",views.logout),
+    path("", views.mainView.as_view(),name='mainpage'),
+    path("login/",views.login_view,name='login'),
+    path("signup/", views.signup, name='signup'),
+    path("logout/",views.logout,name='logout'),
     path("lan/", views.TeachableUserView.as_view()),
-    path('<int:pk>/', views.TeacherView.as_view()),
-    path("profile/", views.ProfileView.as_view()),
+    path("lan/<int:pk>/", views.TeacherView.as_view()),
 ]

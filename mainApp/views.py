@@ -9,12 +9,9 @@ from rest_framework.generics import *
 from rest_framework.serializers import Serializer
 from rest_framework.views import APIView
 from .serializers import *
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate , login,logout
 from .models import *
 # Create your views here.
-
-def test(request):
-    return render(request, 'mainApp/LoginPage.html')
 
 class mainView(APIView):
     def get(self, request):
@@ -32,44 +29,38 @@ class TeachableUserView(APIView):
         return Response(serializers.data)
 
 class TeacherView(RetrieveAPIView):
-    #queryset = User.objects.filter(teachable__detail_name__in = ['언어']) #json형식으로 받은 카테고리만 걸러서 리턴
-    queryset = User.objects.all()
+    queryset = User.objects.filter(teachable__detail_name__in = ['언어']) #json형식으로 받은 카테고리만 걸러서 리턴
     serializer_class = TeacherSerializer
 
-    def get_context_data(self, **kwargs):
-        print(self.kwargs['pk'])
-        context = super().get_context_data(**kwargs)
-        context[self.kwargs['pk']] = User.objects.filter(teachable__deatil_name = self.kwargs['pk'])
-        return context
-    
-class ProfileView(APIView):
-    def get(self, request):
-        querset = User.objects.all()
-        serializers = ProfileSerializer(querset, many = True)
-        return Response(serializers.data)
-
-def login(request):
+def login_view(request):
     if request.method == 'POST':
-        data = JSONParser().parse(request)
-        email = data['email']
-        password = data['password']
-        user = authenticate(email='ata97@naver.com', password='1234')
+        email = request.POST.get('email')  # post에 포함된 정보 가져오기
+        password = request.POST.get('password')
+        print(email,' ',password)
+        user = authenticate(email=email, password=password)
         if user is not None:
             print(1)
-            login(request, user) #session 에 login 정보 저장.
-            serializers = BasicUserSerializer(user)
-            return redirect('language/', serializers.data)
-               # Redirect(serializers.data, status=200)
+            login(request,user) #session 에 login 정보 저장.
+            return redirect('mainApp:mainpage')
         else:
-            return Http404("Question does not exist")
+            return render(request,'mainApp/LoginPage.html')
     if request.method == 'GET':
-        user = User.objects.filter(email='junic@naver.com')
-        serializers = BasicUserSerializer(user)
-        redirect('언어/', serializers.data)
-    user = User.objects.filter(email='junic@naver.com')
-    serializers = BasicUserSerializer(user)
-    return redirect('mainApp:language')
+        return render(request,'mainApp/LoginPage.html')
 
+
+def signup(request):
+    if request.method == 'GET':
+        return render(request, 'mainApp/SignUp.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')  # post에 포함된 정보 가져오기
+        nickname = request.POST.get('nickname')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        gender = request.POST.get('gender')
+        if password1 == password2:
+            user = User.objects.create_user(email, "1997-07-12",nickname, password1)
+            if user is not None:
+                return redirect('mainApp:login')
 
 
 def logout(request):

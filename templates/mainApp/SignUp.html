@@ -14,16 +14,20 @@
                     <img src="{% static 'images/login_logo.png' %}" height="100%" width="100%">
                 </div>
                 <div class="signup-area">
-                    <form action="">
-                        <input type="text" placeholder="닉네임">
-                        <input type="text" placeholder="이메일">
-                        <input type="password" placeholder="비밀번호">
-                        <input type="password" placeholder="비밀번호 확인">
-                        <a href="./MainPage.html" class="CompleteSignupBtn">회원가입</a>
+                    <form method = "post" action="{% url 'mainApp:signup' %}">
+                          {% csrf_token %}
+                        <input type="text" name="nickname" placeholder="닉네임">
+                        <input type="text" name="email" placeholder="이메일">
+                        <input type="password" name="password1" placeholder="비밀번호">
+                        <input type="password" name="password2" placeholder="비밀번호 확인">
+                        <div class="CompleteSignupBtn"> <input
+                            type="submit"
+                            value="회원가입"
+                        /></div>
+                        </form>
                         <div class="sign-up">
-                            <a href="./LoginPage.html" class="BacktoLoginPage">로그인 화면으로 돌아가기</a>
+                            <a href="{% url 'mainApp:login' %}" class="BacktoLoginPage">로그인 화면으로 돌아가기</a>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

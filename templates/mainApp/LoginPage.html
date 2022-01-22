@@ -14,13 +14,17 @@
                 <p style="font-family: 나눔스퀘어_레귤러; color: #646464; margin:auto">"Friends have all things in common"</p>
             </div>
             <div class="right">
-                <form action="">
-                    <input type="text" placeholder="이메일">
-                    <input type="password" placeholder="비밀번호">
-                    <a href="./MainPage.html" class="loginBtn">로그인</a>
+                <form method="post" action="{% url 'mainApp:login' %}">
+                      {% csrf_token %}
+                    <input type="text" name="email" placeholder="이메일">
+                    <input type="password" name="password" placeholder="비밀번호">
+                    <div class="loginBtn"> <input
+                        type="submit"
+                        value="로그인"
+                    /></div>
                     <a href="" class="forget" style="font-family: 나눔스퀘어_볼드;">계정 이메일/비밀번호 찾기</a>
                     <div class="sign-up">
-                        <a href="./SignUp.html" class="signupBtn">새 계정 만들기</a>
+                        <a href="{% url 'mainApp:login' %}" class="signupBtn">새 계정 만들기</a>
                     </div>
                 </form>
                 <p style="font-family: 나눔스퀘어_레귤러; color: #646464;">다양한 사람과 함께 소통하며 서로의 재능을 나누어보세요.</p>
