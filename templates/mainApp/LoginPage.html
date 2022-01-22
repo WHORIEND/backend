@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <title>WHORIEND</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <div class="loginBody">
+        <div class="container">
+            <div class="left">
+                <img src="{% static 'images/login_logo.png' %}" width="500px">
+                <p style="font-family: 나눔스퀘어_레귤러; color: #646464; margin:auto">"Friends have all things in common"</p>
+            </div>
+            <div class="right">
+                <form action="">
+                    <input type="text" placeholder="이메일">
+                    <input type="password" placeholder="비밀번호">
+                    <a href="./MainPage.html" class="loginBtn">로그인</a>
+                    <a href="" class="forget" style="font-family: 나눔스퀘어_볼드;">계정 이메일/비밀번호 찾기</a>
+                    <div class="sign-up">
+                        <a href="./SignUp.html" class="signupBtn">새 계정 만들기</a>
+                    </div>
+                </form>
+                <p style="font-family: 나눔스퀘어_레귤러; color: #646464;">다양한 사람과 함께 소통하며 서로의 재능을 나누어보세요.</p>
+            </div>
+        </div>
+    </div>
+
+</html>

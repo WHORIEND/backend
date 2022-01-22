@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <title>WHORIEND-회원가입</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <div class="regBody">
+            <div>
+                <div class="title-area">
+                    <img src="{% static 'images/login_logo.png' %}" height="100%" width="100%">
+                </div>
+                <div class="signup-area">
+                    <form action="">
+                        <input type="text" placeholder="닉네임">
+                        <input type="text" placeholder="이메일">
+                        <input type="password" placeholder="비밀번호">
+                        <input type="password" placeholder="비밀번호 확인">
+                        <a href="./MainPage.html" class="CompleteSignupBtn">회원가입</a>
+                        <div class="sign-up">
+                            <a href="./LoginPage.html" class="BacktoLoginPage">로그인 화면으로 돌아가기</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <footer>
+        하단 영역
+    </footer>
+
+</html>

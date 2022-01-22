@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WHORIEND-누구와도 친구가 된다!</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+            nav {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                height: 50px;
+                justify-content: center;
+            }
+
+            main {
+                margin-top: 2%;
+                display: table;
+                height: 800px;
+                width: 89%;
+                margin-left: 5.5%;
+                margin-right: 5.5%;
+                border: 1px solid #999;
+            }
+
+            footer {
+                margin-top: 10px;
+                height: 100px;
+                display: table;
+                margin: auto;
+            }
+
+            footer>span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            img {
+                width: 60%;
+                display: block;
+                margin: auto;
+                object-fit: cover;
+            }
+
+            .menu_bg {
+                width: 300px;
+                height: 100%;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                overflow: hidden;
+                display: none;
+            }
+
+            .menu {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: #000000;
+                cursor: default;
+
+            }
+
+            .menu>div {
+                display: block;
+                margin: 1px;
+                height: 60px;
+                border-bottom: 1.5px solid #797979;
+                cursor: pointer;
+                line-height: 60px;
+                font-family: '나눔스퀘어-레귤러';
+                font-size: 16px;
+                color: aliceblue;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+            var giMenuDuration = 700;
+
+            // 전체 메뉴를 오른쪽으로 슬라이드하여서 보여준다.
+            function ShowMenu() {
+                $('.menu_bg').css({ 'display': 'block' });
+                $('.menu').css({ 'left': '-100%' });
+                $('.menu').animate({ left: '0px' }, { duration: giMenuDuration });
+            }
+
+            // 전체 메뉴를 왼쪽으로 슬라이드하여서 닫는다.
+            function HideMenu() {
+                $('.menu').animate({ left: '-100%' }, { duration: giMenuDuration, complete: function () { $('.menu_bg').css({ 'display': 'none' }); } });
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <header>
+            <div class="title_parent">
+                <button class="profile" type="button">
+                    <img src="{% static 'images/profile.png' %}" alt="mailbox" onclick="ShowMenu()">
+                    <div class="menu_bg">
+                        <div class="menu">
+                            <div style="width: 100%; text-align: right; padding-right: 15px; font-family:나눔스퀘어-레귤러; font-size: 16px;"
+                                onclick="HideMenu()">
+                                닫기
+                            </div>
+                            <div style="width: 100%; height:200px; line-height: 200px; color: aliceblue;">
+                                프로필 영역
+                            </div>
+                            <div>메뉴 1</div>
+                            <div>메뉴 2</div>
+                            <div>메뉴 3</div>
+                            <div>메뉴 4</div>
+                            <div onclick="location.href='./LoginPage.html';">로그아웃</div>
+                        </div>
+                    </div>
+                </button>
+                <div class="title">
+                    <a href="./MainPage.html">
+                        <img src="{% static 'images/login_logo.png' %}" width=50% height=50% vertical-align: middle;>
+                    </a>
+                </div>
+                <button class="message" type="button">
+                    <img src="{% static 'images/email.png' %}" alt="mailbox">
+                </button>
+            </div>
+        </header>
+        <nav>
+            <select class="category">
+                <option selected>카테고리</option>
+                <option>옵션1</option>
+                <option>옵션2</option>
+                <option>옵션3</option>
+                <option>옵션4</option>
+            </select>
+        </nav>
+        <main style="background-color:rgb(209, 209, 209); text-align: center;">
+            메인 영역
+        </main>
+        <footer>
+            <span>하단 영역</span>
+        </footer>
+    </body>
+
+</html>
