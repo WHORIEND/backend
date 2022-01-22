@@ -17,7 +17,7 @@ class mainView(APIView):
     def get(self, request):
         queryset = Detail_Category.objects.all()
         serializers = DetailCategorySerializer(queryset, many=True)
-        return Response(serializers.data)
+        return render(request, 'mainApp/MainPage.html', {'data' : serializers.data})
 
 
 class TeachableUserView(APIView):

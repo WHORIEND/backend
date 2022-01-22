@@ -139,6 +139,9 @@
         </nav>
         <main style="background-color:rgb(209, 209, 209); text-align: center;">
             메인 영역
+            {%for d in data%}
+            <p>{{d}}</p>
+            {% endfor %}
         </main>
         <footer>
             <span>하단 영역</span>
