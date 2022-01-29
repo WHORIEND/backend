@@ -139,9 +139,24 @@
         </nav>
         <main style="background-color:rgb(209, 209, 209); text-align: center;">
             메인 영역
-            {%for d in data%}
+            {%for d in 악기%}
             <p>{{d}}</p>
             {% endfor %}
+            <br></br>
+            <p>---------------</p>
+            <br></br>
+            {%for d in 운동%}
+            <p>{{d}}</p>
+            {% endfor %}
+            <br></br>
+            <p>---------------</p>
+            <br></br>
+            {%for d in 언어%}
+            <p>{{d}}</p>
+            {% endfor %}
+            <br></br>
+            <p>---------------</p>
+            <br></br>
         </main>
         <footer>
             <span>하단 영역</span>

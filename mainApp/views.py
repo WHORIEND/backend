@@ -14,10 +14,18 @@ from .models import *
 # Create your views here.
 
 class mainView(APIView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(kwargs)
     def get(self, request):
-        queryset = Detail_Category.objects.all()
-        serializers = DetailCategorySerializer(queryset, many=True)
-        return render(request, 'mainApp/MainPage.html', {'data' : serializers.data})
+        queryset1 = Detail_Category.objects.filter(category_name__name__in = ['악기'])
+        queryset2 = Detail_Category.objects.filter(category_name__name__in = ['운동'])
+        queryset3 = Detail_Category.objects.filter(category_name__name__in = ['언어'])
+        serializers1 = DetailCategorySerializer(queryset1, many=True)
+        serializers2 = DetailCategorySerializer(queryset2, many=True)
+        serializers3 = DetailCategorySerializer(queryset3, many=True)
+        dict = {'악기' : serializers1.data, '운동' : serializers2.data, '언어' : serializers3.data}
+        #data = json.dumps(dict)
+        return render(request, 'mainApp/MainPage.html', dict)
 
 
 class TeachableUserView(APIView):
